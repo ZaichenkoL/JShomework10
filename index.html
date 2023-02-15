@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="data.js"></script>
+    <style>
+        body {
+        background-color: rgb(254, 254, 205);
+        }
+        .content {
+        display: flex;
+        flex-wrap: wrap; 
+        gap: 10px;
+        }
+        .card {
+        width: 300px;
+        border: 3px solid rgb(219, 250, 173);
+        padding: 10px;
+        
+        justify-content: flex-start;
+        align-items: center;
+        float: column;
+        text-align: center;
+        }
+        img {
+        width: 80%;
+        display: flex;
+        margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="content"></div>
+    <script>
+        const contentEl = document.querySelector('.content');
+
+        //display: flex;            
+        
+        dataInfo.drinks.forEach((drink) => {
+            const cardEl = document.createElement('div');
+            cardEl.classList.add('card');
+
+            const nameEl = document.createElement('h1');
+            nameEl.textContent = drink.strDrink;
+            cardEl.appendChild(nameEl);
+
+            const alcoholicEl = document.createElement('p');
+            alcoholicEl.textContent = drink.strAlcoholic;
+            cardEl.appendChild(alcoholicEl);
+
+            const InstructionsEl = document.createElement('p');
+            InstructionsEl.textContent = drink.strInstructions;
+            cardEl.appendChild(InstructionsEl);
+
+            const DrinkThumbtEl = document.createElement('img');
+            DrinkThumbtEl.src = drink.strDrinkThumb;
+            cardEl.appendChild(DrinkThumbtEl);
+
+            contentEl.appendChild(cardEl);
+        });
+    </script>
+</body>
+</html>
+
